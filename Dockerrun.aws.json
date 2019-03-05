@@ -1,0 +1,14 @@
+{
+  "AWSEBDockerrunVersion": 2, 
+  "containerDefinitions": [
+   {
+      "name": "client",
+      "image": "talyoffe/multi-client"
+      "hostname" : "client"
+    }
+
+  ]
+
+
+
+}
