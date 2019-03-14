@@ -3,10 +3,36 @@
   "containerDefinitions": [
    {
       "name": "client",
-      "image": "talyoffe/multi-client"
-      "hostname" : "client"
-    }
+      "image": "talyoffe/multi-client",
+      "hostname" : "client",
+      "essential": false   
+   },
+   {
+      "name": "server",
+      "image": "talyoffe/multi-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "talyoffe/multi-worker",
+      "hostname": "worker",
+      "essential": false
+    },
 
+    {
+      "name": "nginx",
+      "image": "talyoffe/multi-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+           "hostPort": 80,
+           "containerPort":80
+        }
+       ],
+	"links": ["client", "server"]
+        } 
   ]
 
 
